@@ -33,3 +33,20 @@ bash
 
 xeyes
 
+COMMANDS I'VE TRIED
+xhost +local:docker
+
+docker run --rm -it     --env="DISPLAY=$DISPLAY"     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" qu
+docker run --rm -it     --env="DISPLAY=$DISPLAY"     --env="XAUTHORITY=/tmp/.docker.xauth"     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"     --volume="/tmp/.docker.xauth:/tmp/.docker.xauth:rw"     --network=docker_network qu
+docker run --rm -it     --env="DISPLAY=$DISPLAY"     --env="XAUTHORITY=/tmp/.docker.xauth"     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"     --volume="/tmp/.docker.xauth:/tmp/.docker.xauth:rw"     --network=docker_network --ipc="host" qu
+docker run --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user="$(id --user):$(id --group)" qu
+docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user="$(id --user):$(id --group)" qu
+docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user="docker:docker" qu
+docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user=docker:docker qu
+docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user=gpwolfe:gpwolfe qu
+docker run --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user="$(id --user):$(id --group)"
+docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  qu
+sudo docker run --rm -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  qu
+
+This creates a working QuShape setup, now to remove extraneous:
+sudo docker run --rm -it     --env="DISPLAY=$DISPLAY"     --env="XAUTHORITY=/tmp/.docker.xauth"     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"     --volume="/tmp/.docker.xauth:/tmp/.docker.xauth:rw"     --network=docker_network --ipc="host" qu
