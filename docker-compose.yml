@@ -3,11 +3,9 @@ version: "1"
 services:
   app:
     image: qushape:initfile
-    stdin_open: true # equals docker run -i (interactive)
-    tty: true   # equals docker run -t (terminal)
+    stdin_open: false # equals docker run -i (interactive)
+    tty: false   # equals docker run -t (terminal)
     build: .
-    environment:
-      - DISPLAY=${DISPLAY}
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-    network_mode: host
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - $PWD:/data

@@ -36,4 +36,7 @@ RUN /bin/bash
 ENV QT_X11_NO_MITSHM=1 
 RUN touch /root/.Xauthority
 
+WORKDIR /QuShape-master/src
+
+CMD ["python", "mainWindow.py"]
 
