@@ -20,7 +20,7 @@ find ip address of user
 /usr/sbin/ipconfig getifaddr en0
 
 add this ip address to X11 access control
-/opt/X11/bin/xhost + 192.168.1.153
+/opt/X11/bin/xhost + [YOUR_IP_ADDRESS]
 
 Open XQuartz terminal window
 Run:
